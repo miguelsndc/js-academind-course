@@ -1,2 +1,2 @@
 # Javascript-the-complete-guide
-JS Course provided by Academind By Maximillian Schwarzmuller
+Estudo do JavaScript, desde os primeiros passos até conceitos mais avançados.
