@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-console */
 /* eslint-disable no-useless-return */
 
@@ -24,11 +25,11 @@ const renderMovies = (filter = '') => {
   filteredMovies.forEach((movie) => {
     const movieEl = document.createElement('li');
     const { info } = movie;
-    const { getFormattedTitle } = movie;
-    let text = `${getFormattedTitle.call(movie)} - `;
+    // const { getFormattedTitle } = movie;
+    let text = `${info.title} - `;
 
     Object.keys(info).forEach((key) => {
-      if (key !== 'title') {
+      if (key !== 'title' && key !== '_title') {
         text += `${key}: ${info[key]}`;
       }
     });
@@ -43,20 +44,27 @@ const addMovieHandler = () => {
   const extraName = document.getElementById('extra-name').value;
   const extraValue = document.getElementById('extra-value').value;
 
-  if (!title.trim() || !extraName.trim() || !extraValue.trim()) {
+  if (!extraName.trim() || !extraValue.trim()) {
     return;
   }
 
   const newMovie = {
     info: {
-      title,
+      set title(val) {
+        if (!title.trim()) {
+          this._title = 'DEFAULT';
+        }
+        this._title = val;
+      },
+      get title() {
+        return this._title.toUpperCase();
+      },
       [extraName]: extraValue,
-    },
-    getFormattedTitle() {
-      return this.info.title.toUpperCase();
     },
     id: Math.random(),
   };
+
+  newMovie.info.title = title;
 
   movies.push(newMovie);
   renderMovies();
