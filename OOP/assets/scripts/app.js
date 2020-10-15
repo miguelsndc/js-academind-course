@@ -1,3 +1,12 @@
+class Product { // Primeiro caractere Maiúsculo -> Convenção. ( Pascal Case )
+  title = 'DEFAULT';
+  imageUrl;
+  description;
+  price;
+}
+
+console.log(new Product());
+
 const productList = {
   products: [
     {
