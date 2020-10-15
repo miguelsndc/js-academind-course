@@ -3,24 +3,33 @@ class Product { // Primeiro caractere Maiúsculo -> Convenção. ( Pascal Case )
   imageUrl;
   description;
   price;
+
+  constructor(title, img, desc, price) {
+    this.title = title;
+    this.imageUrl = img;
+    this.description = desc;
+    this.price = price;
+  }
 }
 
 console.log(new Product());
 
 const productList = {
   products: [
-    {
-      title: 'Pillow',
-      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQQuV4dSqu_QRdWh-BxEOezYovvEu6NhffYQA&usqp=CAU',
-      price: 19.99,
-      description: 'A Soft Pillow',
-    },
-    {
-      title: 'Carpet',
-      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ8A2DX6uhbXA3QqVQ-CKSSXt0v83zzltVJpQ&usqp=CAU',
-      price: 89.99,
-      description: 'A Carpet which you might like',
-    },
+    new Product(
+      'Pillow',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQQuV4dSqu_QRdWh-BxEOezYovvEu6NhffYQA&usqp=CAU',
+      'A Soft Pillow',
+      19.99
+    ),
+
+    new Product(
+      'Carpet',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ8A2DX6uhbXA3QqVQ-CKSSXt0v83zzltVJpQ&usqp=CAU',
+      'A Carpet which you might like',
+      89.99
+    ),
+
   ],
   render() {
     const renderHook = document.getElementById('app');
