@@ -7,15 +7,34 @@ class Product { // Primeiro caractere Maiúsculo -> Convenção. ( Pascal Case )
   }
 }
 
+class ShoppingCart {
+  Items = [];
+
+  addProduct(product) {
+    this.Items.push(product)
+    this.totalOutput.innerHTML = `<h2>Total: $${1}</h2>`;
+  };
+
+  renderShoppingCart() {
+    const cartEl = document.createElement('section');
+    cartEl.innerHTML = `
+      <h2>Total: $${0}</h2>
+      <button>Order Now !</button>
+    `;
+    cartEl.className = 'cart';
+    this.totalOutput = cartEl.querySelector('h2');
+    return cartEl;
+  }
+}
+
 class ProductItem {
   constructor(product) {
     this.product = product;
   }
 
   addToCart() {
-    console.log('Adding product to cart...')
-    console.log(this.product, this)
-  }
+    App.addProductToCart(this.product);
+  };
 
   renderProductItem() {
     const prodEl = document.createElement('li');
@@ -57,7 +76,6 @@ class ProductList {
   constructor() { };
 
   renderProductList() {
-    const renderHook = document.getElementById('app');
     const prodList = document.createElement('ul');
 
     prodList.className = 'product-list';
@@ -68,10 +86,40 @@ class ProductList {
       prodList.append(prodEl);
     });
 
-    renderHook.append(prodList);
+    return prodList;
   };
 }
 
+class Shop {
+  render() {
+    const renderHook = document.getElementById('app');
 
-const productList = new ProductList();
-productList.renderProductList();
+    const productList = new ProductList();
+    this.cart = new ShoppingCart();
+    const cartEl = this.cart.renderShoppingCart();
+    const productListEl = productList.renderProductList();
+
+    renderHook.append(cartEl)
+    renderHook.append(productListEl)
+  };
+}
+
+class App {
+  static cart;
+
+  static init() {
+    const shop = new Shop();
+    shop.render();
+    this.cart = shop.cart;
+  };
+
+  static addProductToCart(product) {
+    this.cart.addProduct(product);
+  };
+}
+
+App.init();
+
+
+
+
