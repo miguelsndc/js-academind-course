@@ -35,16 +35,16 @@
   </div>
 
   <script>
-    const body = document.body
-    const btnBgChanger = document.querySelector('.btn-bg-trigger')
-    const colors = ['red', 'blue', 'green', 'aqua', 'purple']
+    const body = document.body;
+    const btnBgChanger = document.querySelector('.btn-bg-trigger');
+    const colors = ['red', 'blue', 'green', 'aqua', 'purple'];
 
     const bgChanger = () => {
-      const randomColor = colors[Math.floor(Math.random() * colors.length)]
-      body.style.backgroundColor = randomColor
-    }
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      body.style.backgroundColor = randomColor;
+    };
 
-    btnBgChanger.addEventListener('click', bgChanger)
+    btnBgChanger.addEventListener('click', bgChanger);
     
   </script>
   
