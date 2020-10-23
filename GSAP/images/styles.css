@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./clothing-3.jpg");
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  padding: 12px;
+  position: sticky;
+}
+
+nav .container {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+nav .container .nav-logo h1 {
+  color: whitesmoke;
+  text-transform: uppercase;
+  font-size: 32px;
+  opacity: 0;
+}
+
+nav .container .nav-links {
+  list-style: none;
+}
+
+nav .container .nav-links li {
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline;
+}
+
+nav .container .nav-links li a {
+  text-decoration: none;
+  color: whitesmoke;
+  opacity: 0;
+}
+
+#dummy {
+  height: 2000px;
+}

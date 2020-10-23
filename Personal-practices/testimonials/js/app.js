@@ -6,7 +6,7 @@ const TestimonialButtons = Array.from(document.querySelectorAll('button'));
 const prevTestimonialBtn = TestimonialButtons[0];
 const nextTestimonialBtn = TestimonialButtons[1];
 
-let counter = 2;
+let counter = 0;
 
 class Testimonial {
   constructor(avatarPath, author, text) {
