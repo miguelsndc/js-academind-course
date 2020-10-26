@@ -1,1 +1,188 @@
-/* No CSS *//*# sourceMappingURL=main.css.map */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #e5e6ea;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Cardo", sans-serif;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+}
+
+/* INTRO ============================ */
+
+.intro {
+  background: #051738;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.intro-text {
+  color: #a37f5d;
+  font-family: "Heebo", sans-serif;
+  font-size: 3rem;
+}
+
+.slider {
+  background: #a37f5d;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+}
+
+.hide {
+  background: #051738;
+  overflow: hidden;
+}
+
+.hide span {
+  transform: translateY(100%);
+  display: inline-block;
+}
+
+/* NAVIGATION ======================= */
+nav {
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav .brand {
+  font-family: "Oswald", sans-serif;
+  color: #363c4c;
+  font-size: 38px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+nav .brand:hover {
+  color: #a37f5d;
+}
+
+nav .container {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav .container ul {
+  display: flex;
+}
+
+nav .container ul li {
+  padding-left: 100px;
+}
+
+nav .container ul li a {
+  font-family: "Oswald", sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #363c4c;
+  transition: color 0.2s;
+}
+
+nav .container ul li a:hover {
+  color: #a37f5d;
+}
+
+/* LANDING ====================== */
+
+#landing-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#landing {
+  width: 80%;
+  position: absolute;
+  margin: 0 auto;
+  top: 200px;
+  display: flex;
+}
+
+#landing .info {
+  width: 40%;
+}
+
+#landing .info .slogan {
+  font-family: "Oswald", sans-serif;
+  color: #363c4c;
+  text-transform: uppercase;
+  font-size: 48px;
+  line-height: 50px;
+}
+
+#landing .text-1 {
+  padding: 15px 15px 15px 0;
+  line-height: 25px;
+  color: #363c4c;
+}
+
+#landing button {
+  outline: 0;
+  border: 0;
+  border-radius: 15px;
+  padding: 15px 25px;
+
+  background-color: #a37f5d;
+  font-size: 20px;
+
+  font-family: "Oswald", sans-serif;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+
+  transition: all 0.2s;
+}
+
+#landing button:hover {
+  background-color: #051738;
+  transform: translateX(15px);
+}
+
+#landing .img-container {
+  position: absolute;
+  right: 70px;
+  top: 15px;
+  left: 100;
+  width: 750px;
+  height: 500px;
+  transition: all 0.2s;
+}
+
+#landing .img-container img {
+  width: 100%;
+  height: 100%;
+}
+
+#landing .background {
+  position: absolute;
+  width: 750px;
+  height: 500px;
+  right: 30px;
+  top: -25px;
+  background-color: #a37f5d;
+  z-index: -1;
+}
