@@ -1,125 +1,55 @@
-class Product { // Primeiro caractere Maiúsculo -> Convenção. ( Pascal Case )
-  constructor(title, img, desc, price) {
-    this.title = title;
-    this.imageUrl = img;
-    this.description = desc;
-    this.price = price;
+class Product {
+  constructor(title, imageUrl, description, price) {
+    this.title = title
+    this.imageUrl = imageUrl
+    this.description = description
+    this.price = price
   }
 }
 
-class ShoppingCart {
-  Items = [];
+console.log(new Product("Pillow", "", "Lorem psim ds dsaamamdamiifm", 89.99))
 
-  addProduct(product) {
-    this.Items.push(product)
-    this.totalOutput.innerHTML = `<h2>Total: $${1}</h2>`;
-  };
+const productList = {
 
-  renderShoppingCart() {
-    const cartEl = document.createElement('section');
-    cartEl.innerHTML = `
-      <h2>Total: $${0}</h2>
-      <button>Order Now !</button>
-    `;
-    cartEl.className = 'cart';
-    this.totalOutput = cartEl.querySelector('h2');
-    return cartEl;
-  }
-}
-
-class ProductItem {
-  constructor(product) {
-    this.product = product;
-  }
-
-  addToCart() {
-    App.addProductToCart(this.product);
-  };
-
-  renderProductItem() {
-    const prodEl = document.createElement('li');
-    prodEl.className = 'product-item';
-    prodEl.innerHTML = `
-      <div>
-        <img src="${this.product.imageUrl} alt="${this.product.title}" ">
-        <div class="product-item__content">
-          <h2>${this.product.title}</h2>
-          <h3>$${this.product.price}</h3>
-          <p>${this.product.description}</p>
-          <button>Add to Cart</button>
-        </div>
-      </div>
-    `;
-    const addCartButton = prodEl.querySelector('button');
-    addCartButton.addEventListener('click', this.addToCart.bind(this));
-    return prodEl;
-  };
-
-}
-
-class ProductList {
-  products = [
+  products: [
     new Product(
-      'Pillow',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQQuV4dSqu_QRdWh-BxEOezYovvEu6NhffYQA&usqp=CAU',
-      'A Soft Pillow',
+      'A Pillow',
+      'https://images.unsplash.com/photo-1570786240066-c0d753711cfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
       19.99,
+      'A Soft Pillow'
     ),
     new Product(
-      'Carpet',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ8A2DX6uhbXA3QqVQ-CKSSXt0v83zzltVJpQ&usqp=CAU',
-      'A Carpet which you might like',
+      'A Carpet',
+      'https://images.unsplash.com/photo-1534889156217-d643df14f14a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
       89.99,
+      'A carpet which you might like'
     ),
-  ];
+  ],
 
-  constructor() { };
-
-  renderProductList() {
-    const prodList = document.createElement('ul');
-
-    prodList.className = 'product-list';
-
-    this.products.forEach((prod) => {
-      const productItem = new ProductItem(prod);
-      const prodEl = productItem.renderProductItem();
-      prodList.append(prodEl);
-    });
-
-    return prodList;
-  };
-}
-
-class Shop {
   render() {
-    const renderHook = document.getElementById('app');
+    const renderHook = document.getElementById('app')
+    const prodList = document.createElement('ul')
+    prodList.className = 'product-list'
 
-    const productList = new ProductList();
-    this.cart = new ShoppingCart();
-    const cartEl = this.cart.renderShoppingCart();
-    const productListEl = productList.renderProductList();
+    this.products.forEach((product) => {
+      prodEl = document.createElement('li')
+      prodEl.className = 'product-item'
+      prodEl.innerHTML = `
+        <div>
+          <img src="${product.imageUrl}" alt="${product.title}">
+          <div class="product-item__content"> 
+            <h2>${product.title}</h2>
+            <h3>$${product.price}</h3>
+            <p>${product.description}</p>
+            <button>Add to Cart</button>
+          </div>  
+        </div>
+      `
+      prodList.append(prodEl)
+    })
 
-    renderHook.append(cartEl)
-    renderHook.append(productListEl)
-  };
-}
+    renderHook.append(prodList)
+  }
+};
 
-class App {
-  static cart;
-
-  static init() {
-    const shop = new Shop();
-    shop.render();
-    this.cart = shop.cart;
-  };
-
-  static addProductToCart(product) {
-    this.cart.addProduct(product);
-  };
-}
-
-App.init();
-
-
-
-
+productList.render()
