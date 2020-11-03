@@ -1,7 +1,7 @@
-const testimonialAvatar = document.querySelector('.testimonial-avatar');
-const testimonialAuthor = document.querySelector('.testimonial-author');
-const testimonialText = document.querySelector('.testimonial-text');
-const TestimonialButtons = Array.from(document.querySelectorAll('button'));
+const testimonialAvatar = document.querySelector('.testimonial-avatar')
+const testimonialAuthor = document.querySelector('.testimonial-author')
+const testimonialText = document.querySelector('.testimonial-text')
+const TestimonialButtons = Array.from(document.querySelectorAll('button'))
 
 const prevTestimonialBtn = TestimonialButtons[0];
 const nextTestimonialBtn = TestimonialButtons[1];
@@ -10,15 +10,15 @@ let counter = 0;
 
 class Testimonial {
   constructor(avatarPath, author, text) {
-    this.avatar = avatarPath;
-    this.author = author;
-    this.text = text;
+    this.avatar = avatarPath
+    this.author = author
+    this.text = text
   }
 
   render() {
-    testimonialAvatar.style.backgroundImage = `url(${this.avatar})`;
-    testimonialAuthor.textContent = `${this.author}`;
-    testimonialText.textContent = `${this.text}`;
+    testimonialAvatar.style.backgroundImage = `url(${this.avatar})`
+    testimonialAuthor.textContent = `${this.author}`
+    testimonialText.textContent = `${this.text}`
   }
 }
 
@@ -29,34 +29,34 @@ const clientsTestimonials = [
 ]
 
 let app = clientsTestimonials[counter];
-app.render();
+app.render()
 
 const verifyCounter = value => {
   if (value > clientsTestimonials.length - 1) {
-    value = 0;
-    return value;
+    value = 0
+    return value
   }
   else if (value < 0) {
     value = clientsTestimonials.length - 1;
-    return value;
+    return value
   }
   else {
-    return value;
+    return value
   }
 }
 
 const slideToPrevTestimonial = () => {
-  counter--;
-  counter = verifyCounter(counter);
-  app = clientsTestimonials[counter];
-  app.render();
+  counter--
+  counter = verifyCounter(counter)
+  app = clientsTestimonials[counter]
+  app.render()
 }
 
 const slideToNextTestimonial = () => {
-  counter++;
-  counter = verifyCounter(counter);
-  app = clientsTestimonials[counter];
-  app.render();
+  counter++
+  counter = verifyCounter(counter)
+  app = clientsTestimonials[counter]
+  app.render()
 }
 
 
