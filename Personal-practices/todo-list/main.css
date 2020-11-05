@@ -81,14 +81,6 @@ body {
   color: white;
 }
 
-.clear-all-items {
-  outline: 0;
-  border: 0;
-  width: 100px;
-  height: 40px;
-  margin: 0 auto;
-}
-
 .concluded {
   opacity: 0.3;
 }
